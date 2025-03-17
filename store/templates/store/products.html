@@ -1,0 +1,31 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block title %}Products - Ecommerce Store{% endblock %}
+{% block content %}
+    <section class="hero">
+        <h1>All Products</h1>
+        <p>Browse our full collection!</p>
+    </section>
+
+    <section class="product-list">
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    <a href="{% url 'product_detail' product.pk %}">
+                        {% if product.image_url %}
+                            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-img">
+                        {% elif product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img">
+                        {% else %}
+                            <img src="https://via.placeholder.com/150" alt="Default" class="product-img">
+                        {% endif %}
+                        <h3>{{ product.name }}</h3>
+                        <p class="price">${{ product.price }}</p>
+                    </a>
+                </div>
+            {% empty %}
+                <p>No products available yet!</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

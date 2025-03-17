@@ -1,0 +1,39 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block title %}সার্চ ফলাফল - ইকমার্স স্টোর{% endblock %}
+{% block content %}
+    <section class="search-results">
+        <h1>
+            {% if query %}"{{ query }}"{% endif %}
+            {% if min_price or max_price %}
+                "{% if min_price %}{{ min_price }}{% else %}0{% endif %} - {% if max_price %}{{ max_price }}{% else %}সীমাহীন{% endif %}"
+            {% endif %}
+            এর জন্য সার্চ ফলাফল
+        </h1>
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    <a href="{% url 'product_detail' product.pk %}">
+                        {% if product.image_url %}
+                            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-img">
+                        {% elif product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img">
+                        {% else %}
+                            <img src="https://via.placeholder.com/150" alt="Default" class="product-img">
+                        {% endif %}
+                        <h3>{{ product.name }}</h3>
+                        <p class="price">${{ product.price }}</p>
+                    </a>
+                </div>
+            {% empty %}
+                <p>
+                    {% if query %}"{{ query }}"{% endif %}
+                    {% if min_price or max_price %}
+                        "{% if min_price %}{{ min_price }}{% else %}0{% endif %} - {% if max_price %}{{ max_price }}{% else %}সীমাহীন{% endif %}"
+                    {% endif %}
+                    এর জন্য কোনো প্রোডাক্ট পাওয়া যায়নি।
+                </p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background: linear-gradient(135deg, #4a235a, #2c003e, #1b1b2e); /* গাঢ় বেগুনি গ্র্যাডিয়েন্ট */
+    color: #e0e0e0; /* টেক্সট হালকা সাদা */
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(to right, #4a235a, #2c003e); /* গাঢ় বেগুনি */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* লাল-বেগুনি গ্লো এফেক্ট */
+    position: fixed; /* নেভবার ফিক্সড করা */
+    top: 0; /* পেজের উপরে */
+    width: 100%; /* পুরো প্রস্থ */
+    z-index: 1000; /* অন্য কন্টেন্টের উপরে থাকবে */
+}
+
+.navbar .logo img {
+    border-radius: 50%; /* লোগোকে পুরোপুরি গোলাকার করে */
+    width: 70px; /* প্রস্থ */
+    height: 70px; /* উচ্চতা, গোলাকারের জন্য প্রস্থের সমান হতে হবে */
+    object-fit: cover; /* ইমেজটি ফ্রেমে ফিট করতে */
+    filter: drop-shadow(0 0 5px #450797); /* গাঢ় বেগুনি লাইটিং এফেক্ট */
+    margin-left: 25px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: 100px;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #421a5a; /* গাঢ় লাল-বেগুনি হোভার */
+    border-radius: 20px;
+    box-shadow: 0 0 10px #560361; /* লাইটিং গ্লো */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #380930, #3e0d52); /* লাল থেকে গাঢ় বেগুনি */
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(99, 90, 91, 0.7); /* গ্লো এফেক্ট */
+    margin-top: 100px; /* নেভবারের জন্য জায়গা ছাড়া */
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #6d0564; /* লাইটিং এফেক্ট */
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+/* Featured Products */
+.featured-products {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #e94560; /* গাঢ় লাল */
+    text-shadow: 0 0 8px #e94560; /* লাইটিং */
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex; /* ফ্লেক্স লেআউটে পরিবর্তন */
+    flex-wrap: wrap; /* ৪টির বেশি হলে নিচে যাবে */
+    justify-content: space-between; /* সমান স্পেসিং */
+    max-width: 1200px; /* সর্বোচ্চ প্রস্থ */
+    margin: 0 auto; /* কেন্দ্রে রাখতে */
+    gap: 20px; /* প্রোডাক্টের মধ্যে ফাঁক */
+    padding: 0 20px;
+}
+
+.product-card {
+    flex: 0 0 calc(25% - 15px); /* ৪টি প্রোডাক্টের জন্য ২৫% প্রস্থ, গ্যাপ সহ */
+    background: #2c003e; /* গাঢ় বেগুনি */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* লাল-বেগুনি গ্লো */
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(133, 105, 110, 0.8); /* বড় গ্লো */
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    filter: drop-shadow(0 0 5px #e94560); /* লাইটিং */
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    color: #e0e0e0;
+}
+
+.product-card .price {
+    color: #e94560;
+    font-weight: bold;
+}
+
+/* Product Detail */
+.product-detail {
+    max-width: 800px;
+    margin: 100px auto 40px auto;
+    padding: 20px;
+    background: #2c003e; /* গাঢ় বেগুনি */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* গ্লো */
+    text-align: center;
+}
+
+.product-detail-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+    filter: drop-shadow(0 0 10px #e94560); /* লাইটিং */
+}
+
+.product-detail .price {
+    font-size: 1.5em;
+    color: #e94560;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background-color: #e94560;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #d32f4b;
+    box-shadow: 0 0 15px #e94560; /* গ্লো */
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #4a235a, #1b1b2e); /* গাঢ় বেগুনি-কালো */
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 15px rgba(233, 69, 96, 0.5); /* গ্লো */
+}
+
+/* Contact Page */
+.contact-page {
+    max-width: 1200px;
+    margin: 100px auto 40px auto; /* উপরে 100px মার্জিন যোগ, নিচে 40px */
+    padding: 20px;
+    text-align: center;
+    background: #2c003e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5);
+}
+.contact-page h1 {
+    font-size: 2.5em;
+    color: #e94560;
+    text-shadow: 0 0 10px #e94560;
+    margin-bottom: 20px;
+}
+
+.contact-page p {
+    font-size: 1.2em;
+    color: #e0e0e0;
+}
+
+.contact-info {
+    margin: 20px 0;
+}
+
+.contact-info h2 {
+    font-size: 1.8em;
+    color: #e94560;
+    text-shadow: 0 0 8px #e94560;
+}
+
+.map-container {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden; /* কোণগুলো গোলাকার রাখতে */
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* গ্লো */
+}
+
+
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-form input[type="text"],
+.search-form input[type="number"] {
+    padding: 6px 8px; /* প্যাডিং কমিয়ে ছোট করা */
+    border: none;
+    background: #e0e0e0;
+    color: #2c003e;
+    font-size: 0.9em; /* ফন্ট সাইজ কমানো */
+    outline: none;
+    width: 80px; /* প্রস্থ নির্দিষ্ট করে ছোট করা */
+}
+
+.search-form input[type="text"] {
+    border-radius: 5px 0 0 0; /* প্রথম ইনপুটের বাম কোণ গোল */
+}
+
+.search-form input[type="number"] {
+    border-radius: 0; /* মাঝের ইনপুটের কোণ সোজা */
+}
+
+.search-form input[type="number"]:last-of-type {
+    border-radius: 0 0 0 5px; /* শেষ ইনপুটের ডান কোণ গোল */
+}
+
+.search-form button {
+    padding: 6px 12px; /* বাটনের প্যাডিং কমানো */
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #e94560;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9em; /* বাটনের ফন্ট সাইজ কমানো */
+    transition: all 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #d32f4b;
+    box-shadow: 0 0 10px #e94560; /* গ্লো এফেক্ট */
+}
+
+
+/* Search Results */
+.search-results {
+    max-width: 1200px;
+    margin: 100px auto 40px auto; /* উপরে 100px মার্জিন যোগ, নিচে 40px */
+    padding: 20px;
+    text-align: center;
+    background: #2c003e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5);
+}
+
+.search-results h1 {
+    font-size: 2em;
+    color: #e94560;
+    text-shadow: 0 0 8px #e94560;
+    margin-bottom: 20px;
+}
+
+
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* ডিফল্টভাবে লুকানো */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #e0e0e0;
+    margin: 2px 0;
+    transition: all 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* ছোট স্ক্রিনে হ্যামবার্গার দেখাবে */
+    }
+
+    .nav-links {
+        display: none; /* ডিফল্টভাবে লুকানো */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #2c003e;
+        flex-direction: column;
+        padding: 20px 0;
+        margin-left: 0; /* মোবাইল ভিউতে মার্জিন সরানো */
+    }
+
+    .nav-links.active {
+        display: flex; /* ক্লিক করলে দেখাবে */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 20px; /* মোবাইল ভিউতে ফন্ট সাইজ ছোট */
+        padding: 10px;
+    }
+
+    .search-form {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-right: 0;
+        width: 80%;
+        justify-content: center;
+    }
+
+    .navbar .logo img {
+        width: 50px;
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    .navbar {
+        flex-wrap: wrap; /* মোবাইল ভিউতে আইটেম নিচে যেতে পারে */
+        padding: 10px 15px;
+    }
+}
+
