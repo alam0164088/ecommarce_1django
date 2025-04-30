@@ -1,37 +1,48 @@
+/* গ্লোবাল রিসেট এবং ফন্ট */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
 body {
     line-height: 1.6;
-    background: linear-gradient(135deg, #4a235a, #2c003e, #1b1b2e); /* গাঢ় বেগুনি গ্র্যাডিয়েন্ট */
-    color: #e0e0e0; /* টেক্সট হালকা সাদা */
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* গাঢ় নীল-বেগুনি গ্র্যাডিয়েন্ট */
+    color: #f5f6fa; /* নরম সাদা টেক্সট */
+    font-family: 'Inter', 'Arial', sans-serif; /* মডার্ন ফন্ট */
+    overflow-x: hidden;
 }
 
-/* Navbar */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* নেভবার */
 .navbar {
-    background: linear-gradient(to right, #4a235a, #2c003e); /* গাঢ় বেগুনি */
+    background: linear-gradient(to right, #1e3c72, #182c61); /* গাঢ় নীল */
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* লাল-বেগুনি গ্লো এফেক্ট */
-    position: fixed; /* নেভবার ফিক্সড করা */
-    top: 0; /* পেজের উপরে */
-    width: 100%; /* পুরো প্রস্থ */
-    z-index: 1000; /* অন্য কন্টেন্টের উপরে থাকবে */
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3); /* গোল্ডেন গ্লো */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background 0.3s ease;
 }
 
 .navbar .logo img {
-    border-radius: 50%; /* লোগোকে পুরোপুরি গোলাকার করে */
-    width: 70px; /* প্রস্থ */
-    height: 70px; /* উচ্চতা, গোলাকারের জন্য প্রস্থের সমান হতে হবে */
-    object-fit: cover; /* ইমেজটি ফ্রেমে ফিট করতে */
-    filter: drop-shadow(0 0 5px #450797); /* গাঢ় বেগুনি লাইটিং এফেক্ট */
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 5px #f1c40f); /* গোল্ডেন গ্লো */
     margin-left: 25px;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.1);
 }
 
 .nav-links {
@@ -45,312 +56,423 @@ body {
 }
 
 .nav-links a {
-    color: #e0e0e0;
+    color: #f5f6fa;
     text-decoration: none;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: 500;
     padding: 10px 15px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f1c40f; /* গোল্ডেন আন্ডারলাইন */
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
-    background-color: #421a5a; /* গাঢ় লাল-বেগুনি হোভার */
-    border-radius: 20px;
-    box-shadow: 0 0 10px #560361; /* লাইটিং গ্লো */
+    color: #f1c40f;
+    border-radius: 5px;
 }
 
-/* Hero Section */
+/* হিরো সেকশন */
 .hero {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(to right, #380930, #3e0d52); /* লাল থেকে গাঢ় বেগুনি */
-    color: #ffffff;
-    box-shadow: 0 0 20px rgba(99, 90, 91, 0.7); /* গ্লো এফেক্ট */
-    margin-top: 100px; /* নেভবারের জন্য জায়গা ছাড়া */
+    padding: 80px 20px;
+    background: linear-gradient(to right, #182c61, #2a5298); /* নীল গ্র্যাডিয়েন্ট */
+    color: #f5f6fa;
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
+    margin-top: 100px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px #6d0564; /* লাইটিং এফেক্ট */
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #f1c40f;
 }
 
 .hero p {
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 300;
 }
-/* Featured Products */
+
+/* ফিচারড প্রোডাক্ট */
 .featured-products {
     max-width: 1200px;
     margin: 40px auto;
     text-align: center;
-}
-
-.featured-products h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #e94560; /* গাঢ় লাল */
-    text-shadow: 0 0 8px #e94560; /* লাইটিং */
-}
-
-/* Product Grid */
-.product-grid {
-    display: flex; /* ফ্লেক্স লেআউটে পরিবর্তন */
-    flex-wrap: wrap; /* ৪টির বেশি হলে নিচে যাবে */
-    justify-content: space-between; /* সমান স্পেসিং */
-    max-width: 1200px; /* সর্বোচ্চ প্রস্থ */
-    margin: 0 auto; /* কেন্দ্রে রাখতে */
-    gap: 20px; /* প্রোডাক্টের মধ্যে ফাঁক */
     padding: 0 20px;
 }
 
+.featured-products h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: #f1c40f; /* গোল্ডেন */
+    text-shadow: 0 0 8px #f1c40f;
+    position: relative;
+}
+
+.featured-products h2::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #f1c40f;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* প্রোডাক্ট গ্রিড */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
 .product-card {
-    flex: 0 0 calc(25% - 15px); /* ৪টি প্রোডাক্টের জন্য ২৫% প্রস্থ, গ্যাপ সহ */
-    background: #2c003e; /* গাঢ় বেগুনি */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* লাল-বেগুনি গ্লো */
-    padding: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: #182c61; /* গাঢ় নীল */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(241, 196, 15, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover::before {
+    opacity: 1;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(133, 105, 110, 0.8); /* বড় গ্লো */
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(241, 196, 15, 0.5);
 }
 
 .product-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 5px;
-    filter: drop-shadow(0 0 5px #e94560); /* লাইটিং */
+    border-radius: 8px;
+    filter: drop-shadow(0 0 5px #f1c40f);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
 }
 
 .product-card h3 {
-    margin: 10px 0;
-    color: #e0e0e0;
+    margin: 15px 0;
+    color: #f5f6fa;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .product-card .price {
-    color: #e94560;
+    color: #f1c40f;
     font-weight: bold;
+    font-size: 1.1em;
 }
 
-/* Product Detail */
+/* প্রোডাক্ট ডিটেইল */
 .product-detail {
-    max-width: 800px;
-    margin: 100px auto 40px auto;
-    padding: 20px;
-    background: #2c003e; /* গাঢ় বেগুনি */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* গ্লো */
+    max-width: 900px;
+    margin: 120px auto 40px auto;
+    padding: 30px;
+    background: #182c61;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
     text-align: center;
+    animation: slideUp 0.5s ease-in-out;
 }
 
 .product-detail-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     height: auto;
-    border-radius: 5px;
-    filter: drop-shadow(0 0 10px #e94560); /* লাইটিং */
+    border-radius: 10px;
+    filter: drop-shadow(0 0 10px #f1c40f);
+    margin-bottom: 20px;
 }
 
 .product-detail .price {
-    font-size: 1.5em;
-    color: #e94560;
-    margin: 10px 0;
+    font-size: 1.8em;
+    color: #f1c40f;
+    margin: 15px 0;
 }
 
 .add-to-cart {
-    background-color: #e94560;
-    color: white;
-    padding: 10px 20px;
+    background: #f1c40f;
+    color: #182c61;
+    padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(241, 196, 15, 0.5);
 }
 
 .add-to-cart:hover {
-    background-color: #d32f4b;
-    box-shadow: 0 0 15px #e94560; /* গ্লো */
+    background: #e1b309;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.8);
 }
 
-/* Footer */
+/* কার্ট টেবিল */
+table {
+    width: 80%;
+    margin: 20px auto;
+    background: #182c61;
+    color: #f5f6fa;
+    border-collapse: collapse;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #f1c40f;
+    text-align: center;
+}
+
+th {
+    background: #2a5298;
+    font-weight: 600;
+}
+
+/* ফুটার */
 footer {
-    background: linear-gradient(to right, #4a235a, #1b1b2e); /* গাঢ় বেগুনি-কালো */
-    color: #e0e0e0;
+    background: linear-gradient(to right, #1e3c72, #182c61);
+    color: #f5f6fa;
     text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -4px 15px rgba(233, 69, 96, 0.5); /* গ্লো */
+    box-shadow: 0 -4px 15px rgba(241, 196, 15, 0.3);
 }
 
-/* Contact Page */
+/* কন্টাক্ট পেজ */
 .contact-page {
     max-width: 1200px;
-    margin: 100px auto 40px auto; /* উপরে 100px মার্জিন যোগ, নিচে 40px */
-    padding: 20px;
+    margin: 120px auto 40px auto;
+    padding: 30px;
+    background: #182c61;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
     text-align: center;
-    background: #2c003e;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5);
 }
+
 .contact-page h1 {
-    font-size: 2.5em;
-    color: #e94560;
-    text-shadow: 0 0 10px #e94560;
+    font-size: 2.8em;
+    color: #f1c40f;
+    text-shadow: 0 0 10px #f1c40f;
     margin-bottom: 20px;
 }
 
 .contact-page p {
     font-size: 1.2em;
-    color: #e0e0e0;
-}
-
-.contact-info {
-    margin: 20px 0;
+    color: #f5f6fa;
 }
 
 .contact-info h2 {
     font-size: 1.8em;
-    color: #e94560;
-    text-shadow: 0 0 8px #e94560;
+    color: #f1c40f;
+    text-shadow: 0 0 8px #f1c40f;
+    margin: 20px 0;
 }
 
 .map-container {
-    margin-top: 20px;
-    border-radius: 10px;
-    overflow: hidden; /* কোণগুলো গোলাকার রাখতে */
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5); /* গ্লো */
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
 }
 
-
-/* Search Form */
+/* সার্চ ফর্ম */
 .search-form {
     display: flex;
     align-items: center;
+    background: #f5f6fa;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(241, 196, 15, 0.3);
     margin-right: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-form:hover {
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.5);
 }
 
 .search-form input[type="text"],
 .search-form input[type="number"] {
-    padding: 6px 8px; /* প্যাডিং কমিয়ে ছোট করা */
+    padding: 8px 12px;
     border: none;
-    background: #e0e0e0;
-    color: #2c003e;
-    font-size: 0.9em; /* ফন্ট সাইজ কমানো */
+    background: transparent;
+    color: #182c61;
+    font-size: 0.95em;
     outline: none;
-    width: 80px; /* প্রস্থ নির্দিষ্ট করে ছোট করা */
+    width: 100px;
+    transition: background 0.3s ease;
 }
 
-.search-form input[type="text"] {
-    border-radius: 5px 0 0 0; /* প্রথম ইনপুটের বাম কোণ গোল */
-}
-
-.search-form input[type="number"] {
-    border-radius: 0; /* মাঝের ইনপুটের কোণ সোজা */
-}
-
-.search-form input[type="number"]:last-of-type {
-    border-radius: 0 0 0 5px; /* শেষ ইনপুটের ডান কোণ গোল */
+.search-form input:focus {
+    background: #ffffff;
 }
 
 .search-form button {
-    padding: 6px 12px; /* বাটনের প্যাডিং কমানো */
+    padding: 8px 15px;
     border: none;
-    border-radius: 0 5px 5px 0;
-    background-color: #e94560;
-    color: #ffffff;
-    font-weight: bold;
+    background: #f1c40f;
+    color: #182c61;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 0.9em; /* বাটনের ফন্ট সাইজ কমানো */
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .search-form button:hover {
-    background-color: #d32f4b;
-    box-shadow: 0 0 10px #e94560; /* গ্লো এফেক্ট */
+    background: #e1b309;
+    box-shadow: 0 0 10px #f1c40f;
 }
 
-
-/* Search Results */
+/* সার্চ রেজাল্ট */
 .search-results {
     max-width: 1200px;
-    margin: 100px auto 40px auto; /* উপরে 100px মার্জিন যোগ, নিচে 40px */
-    padding: 20px;
+    margin: 120px auto 40px auto;
+    padding: 30px;
+    background: #182c61;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
     text-align: center;
-    background: #2c003e;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5);
 }
 
 .search-results h1 {
-    font-size: 2em;
-    color: #e94560;
-    text-shadow: 0 0 8px #e94560;
+    font-size: 2.2em;
+    color: #f1c40f;
+    text-shadow: 0 0 8px #f1c40f;
     margin-bottom: 20px;
 }
 
-
-
-/* Hamburger Menu */
+/* হ্যামবার্গার মেনু */
 .hamburger {
-    display: none; /* ডিফল্টভাবে লুকানো */
+    display: none;
     flex-direction: column;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #e0e0e0;
-    margin: 2px 0;
-    transition: all 0.3s;
+    width: 30px;
+    height: 4px;
+    background: #f5f6fa;
+    margin: 3px 0;
+    transition: all 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex; /* ছোট স্ক্রিনে হ্যামবার্গার দেখাবে */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* অ্যানিমেশন কীফ্রেম */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* রেসপন্সিভ ডিজাইন */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .nav-links {
-        display: none; /* ডিফল্টভাবে লুকানো */
-        position: absolute;
-        top: 100%;
+        margin-left: 50px;
+    }
+
+    .search-form input[type="text"],
+    .search-form input[type="number"] {
+        width: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 80px;
         left: 0;
         width: 100%;
-        background: #2c003e;
+        background: #182c61;
         flex-direction: column;
         padding: 20px 0;
-        margin-left: 0; /* মোবাইল ভিউতে মার্জিন সরানো */
+        box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
     }
 
     .nav-links.active {
-        display: flex; /* ক্লিক করলে দেখাবে */
+        display: flex;
     }
 
     .nav-links li {
-        margin: 10px 0;
-        text-align: center;
+        margin: 15px 0;
     }
 
     .nav-links a {
-        font-size: 20px; /* মোবাইল ভিউতে ফন্ট সাইজ ছোট */
+        font-size: 1.1rem;
         padding: 10px;
     }
 
     .search-form {
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-right: 0;
-        width: 80%;
-        justify-content: center;
+        position: static;
+        margin: 20px auto;
+        width: 90%;
+        border-radius: 8px;
     }
 
     .navbar .logo img {
@@ -359,9 +481,45 @@ footer {
         margin-left: 10px;
     }
 
-    .navbar {
-        flex-wrap: wrap; /* মোবাইল ভিউতে আইটেম নিচে যেতে পারে */
-        padding: 10px 15px;
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .product-detail-img {
+        max-width: 300px;
     }
 }
 
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .product-img {
+        height: 150px;
+    }
+
+    .search-form input[type="text"],
+    .search-form input[type="number"] {
+        width: 60px;
+        font-size: 0.85em;
+    }
+
+    .search-form button {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+
+    .contact-page h1,
+    .search-results h1 {
+        font-size: 1.8em;
+    }
+}

@@ -1,0 +1,55 @@
+ecommerce/
+├── ecommerce/                          # প্রজেক্ট কনফিগারেশন ফোল্ডার
+│   ├── __init__.py                    # পাইথন প্যাকেজ হিসেবে চিহ্নিত করে
+│   ├── asgi.py                        # ASGI সার্ভার কনফিগারেশন
+│   ├── settings.py                    # প্রজেক্ট সেটিংস (অ্যাপস, ডাটাবেস, স্ট্যাটিক ফাইল)
+│   ├── urls.py                        # প্রজেক্ট-লেভেল URL রাউটিং
+│   └── wsgi.py                        # WSGI সার্ভার কনফিগারেশন (Gunicorn)
+├── store/                             # প্রধান অ্যাপ (ই-কমার্স ফাংশনালিটি)
+│   ├── migrations/                    # ডাটাবেস মাইগ্রেশন ফাইল
+│   │   ├── __init__.py
+│   │   └── (মাইগ্রেশন ফাইলগুলো, যেমন 0001_initial.py)
+│   ├── templates/store/              # HTML টেমপ্লেট
+│   │   ├── about.html                # সম্পর্কে পেজ
+│   │   ├── base.html                 # বেস টেমপ্লেট (নেভবার, ফুটার)
+│   │   ├── cart.html                 # কার্ট পেজ
+│   │   ├── contact.html              # যোগাযোগ পেজ
+│   │   ├── home.html                 # হোমপেজ
+│   │   ├── product_detail.html       # প্রোডাক্ট বিস্তারিত পেজ
+│   │   ├── products.html             # প্রোডাক্ট লিস্ট পেজ
+│   │   └── search_results.html       # সার্চ রেজাল্ট পেজ
+│   ├── __init__.py
+│   ├── admin.py                      # অ্যাডমিন প্যানেল কাস্টমাইজেশন
+│   ├── apps.py                       # অ্যাপ কনফিগারেশন
+│   ├── models.py                     # ডাটাবেস মডেল (প্রোডাক্ট, কার্ট, অর্ডার)
+│   ├── tests.py                      # টেস্ট কেস
+│   ├── urls.py                       # অ্যাপ-লেভেল URL রাউটিং
+│   └── views.py                      # ভিউ ফাংশন/ক্লাস
+├── media/                             # ইউজার আপলোডেড ফাইল (প্রোডাক্ট ইমেজ)
+│   ├── product_images/               # প্রোডাক্ট ইমেজ ফোল্ডার
+│   │   ├── l3.jpg
+│   │   ├── l3_gIULSzi.jpg
+│   │   ├── l4.jpg
+│   │   ├── l4_QYhJUU0.jpg
+│   │   ├── l6.jpg
+│   │   ├── l6_910Tx9b.jpg
+│   │   └── l6_R0ZsJe8.jpg
+├── static/                            # স্ট্যাটিক ফাইল (CSS, JS, ইমেজ)
+│   ├── css/                          # CSS ফাইল
+│   │   ├── style.css                 # প্রধান স্টাইলশিট
+│   │   └── bootstrap.min.css         # Bootstrap CSS
+│   ├── js/                           # JavaScript ফাইল
+│   │   ├── main.js                   # কাস্টম JS
+│   │   └── bootstrap.bundle.min.js   # Bootstrap JS
+│   └── images/                       # স্ট্যাটিক ইমেজ
+│       ├── elogo.jpg                 # লোগো
+│       └── product_images/           # প্রোডাক্ট ইমেজ (থাম্বনেইল)
+│           ├── l1.jpg
+│           ├── l3.jpg
+│           ├── l4.jpg
+│           └── l6.jpg
+├── staticfiles/                       # কালেক্টেড স্ট্যাটিক ফাইল (প্রোডাকশনের জন্য)
+├── .gitignore                         # Git উপেক্ষা করার ফাইল
+├── manage.py                          # Django কমান্ড-লাইন টুল
+├── requirements.txt                   # পাইথন ডিপেন্ডেন্সি
+└── README.md                          # প্রজেক্ট ডকুমেন্টেশন

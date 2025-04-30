@@ -1,0 +1,27 @@
+# ecommerce_1/
+# │
+# ├── ecommerce/
+# │   ├── __init__.py
+# │   ├── settings.py
+# │   ├── urls.py
+# │   └── wsgi.py
+# │
+# ├── store/
+# │   ├── __init__.py
+# │   ├── admin.py
+# │   ├── models.py
+# │   ├── urls.py
+# │   ├── views.py
+# │   └── templates/
+# │       └── store/
+# │
+# ├── static/
+# │   ├── css/
+# │   └── images/
+# │       └── product_images/
+# │
+# ├── media/
+# │   └── products/
+# │
+# ├── myenv/
+# └── manage.py আমি এটা pythonanywhere এ এড করে লাইভ সাইট তৈরি করতে চাই

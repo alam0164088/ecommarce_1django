@@ -5,21 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Ecommerce Store{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="{% static 'images/product_images/elogo.jpg' %}" alt="Logo" width="120" height="120">
+                <img src="{% static 'images/product_images/elogo.jpg' %}" alt="Logo">
             </div>
-
             <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'product_list' %}">Products</a></li>
@@ -27,12 +30,11 @@
                 <li><a href="{% url 'contact' %}">Contact</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
             </ul>
-            <!-- সার্চ ফর্ম -->
             <form class="search-form" action="{% url 'search' %}" method="get">
-                <input type="text" name="q" placeholder="product...">
-                <input type="number" name="min_price" placeholder="min" min="0" step="1">
-                <input type="number" name="max_price" placeholder="max" min="0" step="1">
-                <button type="submit">সার্চ</button>
+                <input type="text" name="q" placeholder="Product...">
+                <input type="number" name="min_price" placeholder="Min" min="0" step="1">
+                <input type="number" name="max_price" placeholder="Max" min="0" step="1">
+                <button type="submit">Search</button>
             </form>
         </nav>
     </header>
@@ -43,11 +45,14 @@
     <footer>
         <p>© 2025 Ecommerce Store. All Rights Reserved. | Powered by xAI</p>
     </footer>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
                 navLinks.classList.toggle('active');
             });
         });
